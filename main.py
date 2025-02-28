@@ -3,6 +3,13 @@ import os
 from io import BytesIO
 import pandas as pd
 
+file = st.file_uploader("Upload an Excel file", type=["xlsx", "xls"])
+
+if file is not None:
+    df = pd.read_excel(file, engine="openpyxl")  # Add engine explicitly if needed
+    st.write(df)
+
+
 st.set_page_config(page_title="Data Sweeper", layout="wide")
 
 st.markdown(
